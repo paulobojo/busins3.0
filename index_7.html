@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="light">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<title>BusIns 2.0</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="BusIns 2.0">
+<meta name="theme-color" content="#ECECEA">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAF8ElEQVR4nO2Wa2xcRxXHz5k797W7d3e9jr3xpvUriUISO3UpLKnUOGmjVCAoooRH+6VAhRokoEj0U5ECRU0QCARCVSSo+qUIlLYIVAQFhIpQaB5KS+OGWLHd1HHi3fV27dj73vuamcOH61hViHlI9EMl/h+uRvfOnZ/OnP+cM0hE8G6Kvaur/x/wn4j/8yulFBEBECIgIgIARl8QiBQREAAgIBAB4vUpiDcF4DtdRESItF5Y6t/Hq5QixrR1AQBAABenrhSuTobestcuB50CSU/XSecoQl+BqZk5bmbiTs62Hdd1s7mtqa6+ZDJtmHrMBgZApBDZjYDoWas1f/ns1+Pyj7nuZspRvV1gmQyQMcakJCFIEbmeVMQ6rhZKlFI2XcsLkyFl2kGq2rJ25r+yf/8BpeRaHKsAKYWm8e8c/XZv+MQXPjvQdtlyVZ2borhNMStgEKSTek93XBEhYq1aNw1pm8yyeMy2Op4CEJYulZJ/OsMyo78eHx9XSjHGVgFEhIjl8sKJE6dMQyXrj4znNzz30kon8/SBe3Y3G4vlcnF28vlP5F9OJBJnJtqXWl/KZc1WrdRuFNLGhQO7Za2JZy9Qd0rlulf+PnfLXZ/8y9BgLrIAv55bLBSKWzb3Z3NbXjlu6Jw0pvIf2G5ZePr0RdNKhDi0UOmMdDlxKxz/4P233TYGAL6AH3/vUd97dnHZNvp/mt089Oq510z/y1PnfjY0+DiRQOR8LQGlUimfz5dKl514KCR2pfT5+blSEfP5vOMkVnaM/O2vzey142lHFa5OjI6OCOGbRqz/1r6ORwkbRrf2bd+5a8forhd/8lRQPysUcMYgMl5k4ZWV5ezGjSvXSglLCImZlHZ+4uzY2Ps3bOgplco6lx/a//irkzxhS9dtASARU4pSmQHXYzoXy9cqQoRuJ9CtjHBna3UBwIiIAQBjTAjBuc41rVEvJxMkFUopnIR9+fKbqWT81MkTfX0bi1cmulOBprHArTKmmabNGOvJDnkBB1CWZXGuOylDSqPLXlisFKO9WT3JYRh22vWpmbl6+c+9Y1YQEkPR6tDUm0ujY/oXDz1WXKi/9frRz+zjoeD1yslXTp5JJuOk4I3zUzsT6AXa+cn5ULw8PXNJd6/YSVWrVgAGAQillIyx6Zn5F5/Zfd8+I+2EsZgZhoQIz/3ejaffl06nfbfWaizldzb7c3oYUqPpzxVDZAZjRAQ7thhSwuSlsK/b4ywYHsi8MdUQm361Z8/dUkoeZbhYeOv0xc0jW+c3pHzL6MQtQKZ9+l7ue68L4XMNbEtrttlihWI2i5vs9m3E0JUKpCLfBQQYGcZa0xAUn7kSvL3oWslaVBlWt8g0+anXFkC/676PfbjTWkg53Pf9arWhFNmxmJOIxywFaGpMqko5CMNEPIXgdjxNkgnk23bclw4zsoHvV6v1mZkLn9oejw4yByAAqNdrH8nPH3pAD9UMcwzGNCXaWqZDoIcqESpHYA9qjpCahxqDkFQrVIauNXucRq3uQ1CKQZt1ar1mdcdg0C52Nt36jcifPCpMw1t2ffSerj27ljp+FREVgVRM07iUCmEpqiWk5FoZl5IUIWMMkSBHnDNERNRt21xaLAxs/fy2bUNEkjEtKhUKgP32N8dnJ344kG3EzJZlyN6MVm+0nLih0BJ+XRHzQw2QCakpBZZBpEKdK92IITMaLU/nXOeyWBYVf++9B58a7N9IQIhsrVwTANZbsLRY9tzGkScPLxSmD3/ziWeePjY7V/7W4cdMK2bZGcO0DCMOyJT0Go1qu7l85Oh3r86Xv/+DH33t0a8eeuThj9//0O133GHpQGtdiq5LSrE2npqe3rtv/0Ofe/jOO8fH995N6+t3L/1hcHB4aGh406Zbfv6L40QkZRD1xEhwww9KKSEEEVUqbx858uSDDz4wOzsrpQiDQEohpZCrEkKEYRgoJV944fmDBw8eO3as0agLId65OhHd2NHWwlqvx/63ujkgYkgpESOr/CuYlDIa3HTmuoD/ld77F6/3PuAfG0+ULALirtEAAAAASUVORK5CYII=">
+<style>
+:root{
+  --bg:#ECECEA; --ink:#111111; --sub:#7A7A7A; --faint:#BDBDBA; --rule:#B9B9B6; --soft:#DDDDDA;
+  --acc:#D5452B; --onAcc:#FFFFFF;
+  --font:"Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+*{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+html,body{height:100%;}
+html{overscroll-behavior-y:none; background:var(--bg);}
+body{
+  margin:0; background:var(--bg); color:var(--ink); font-family:var(--font);
+  -webkit-font-smoothing:antialiased; min-height:100%; overscroll-behavior-y:none;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:calc(env(safe-area-inset-bottom,0px) + 40px);
+  letter-spacing:-.01em;
+}
+button{font:inherit; color:inherit; border:0; background:none; padding:0; cursor:pointer; text-align:left;}
+.wrap{max-width:520px; margin:0 auto;}
+.pad{padding:0 22px;}
+.num{font-variant-numeric:tabular-nums;}
+.rule{height:1px; background:var(--rule);}
+
+/* top bar */
+.top{display:flex; align-items:center; justify-content:space-between; padding:22px 22px 0;}
+.logo{display:flex; align-items:center; gap:8px; font-size:15px; font-weight:800; letter-spacing:.02em; text-transform:uppercase;}
+.logo i{width:22px; height:22px; border-radius:50%; border:4px solid var(--ink); position:relative; flex:0 0 auto;}
+.logo i::after{content:""; position:absolute; right:-6px; bottom:-6px; width:9px; height:9px; background:var(--acc); transform:rotate(45deg); border-radius:1px;}
+.logo b{color:var(--acc);}
+.clock{background:var(--ink); color:#fff; font-size:14px; font-weight:600; padding:9px 14px; border-radius:6px; display:flex; align-items:center; gap:8px;}
+.clock span.d{width:6px; height:6px; border-radius:50%; background:var(--acc); animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+
+/* next */
+.nextHead{display:flex; justify-content:space-between; align-items:flex-start; padding:34px 22px 0;}
+.nextHead .a{font-size:24px; font-weight:700; line-height:1.15;}
+.nextHead .b{font-size:24px; font-weight:400; line-height:1.15; margin-top:2px;}
+.nextHead svg{width:22px; height:22px; margin-top:4px;}
+.big{display:block; width:100%; text-align:center; font-size:96px; font-weight:200; letter-spacing:-.05em; line-height:1; margin:22px 0 16px;}
+.heroInv{width:44px; height:44px; border-radius:50%; border:1.5px solid var(--ink); display:flex; align-items:center; justify-content:center; flex:0 0 auto; margin-left:12px; transition:transform .4s cubic-bezier(.3,1.3,.5,1);}
+.heroInv svg{width:18px; height:18px;}
+.heroInv.spin{transform:rotate(180deg);}
+.rt{font-size:17px; color:var(--sub); margin-top:6px; line-height:1.3;}
+.rt b{color:var(--ink); font-weight:500;}
+.heroAct{display:flex; justify-content:center; align-items:center; gap:10px; padding:0 22px; flex-wrap:wrap;}
+.inPill{font-size:14px; font-weight:600; color:var(--acc); border:1.5px solid var(--acc); border-radius:30px; padding:9px 14px;}
+.stopsBtn{display:flex; align-items:center; gap:6px; background:var(--ink); color:#fff; font-size:14px; font-weight:600; padding:10px 14px; border-radius:30px;}
+.stopsBtn svg{width:14px; height:14px;}
+.stopsBtn:active{opacity:.8;}
+.tlLabel{font-size:11px; font-weight:600; color:var(--sub); text-transform:uppercase; letter-spacing:.08em; padding:34px 22px 10px;}
+.big.none{font-size:34px; font-weight:300; letter-spacing:-.02em; margin:30px 0 18px;}
+
+/* timeline */
+.tl{position:relative; height:74px; margin:0 0 6px;}
+.tlDots{position:absolute; left:0; right:0; top:0; height:20px;}
+.tlDots i{position:absolute; top:6px; width:6px; height:6px; margin-left:-3px; border-radius:50%; background:var(--ink);}
+.tlDots i.past{background:var(--faint);}
+.tlDots i.nx{background:var(--acc); width:8px; height:8px; margin-left:-4px; top:5px;}
+.tlBar{position:absolute; left:0; right:0; top:26px; height:14px;
+  background:repeating-linear-gradient(90deg, #D4D4D1 0 6px, #E2E2DF 6px 9px);}
+.tlFill{position:absolute; left:0; top:26px; height:14px; background:var(--ink);}
+.tlNow{position:absolute; top:18px; width:1.5px; height:30px; background:var(--ink); margin-left:-.75px;}
+.tlPill{position:absolute; top:52px; transform:translateX(-50%); background:var(--acc); color:#fff; font-size:10.5px; font-weight:700; letter-spacing:.06em; padding:4px 11px; border-radius:20px; white-space:nowrap;}
+.tlHours{display:flex; justify-content:space-between; padding:0 22px; font-size:10.5px; color:var(--sub); margin-top:2px;}
+
+/* section header */
+.sec{display:flex; align-items:flex-end; justify-content:space-between; padding:40px 22px 12px;}
+.sec .ttl{font-size:24px; font-weight:700;}
+.sec .m{font-size:12px; font-weight:600; color:var(--acc); letter-spacing:.02em;}
+
+/* lines menu */
+.row{display:flex; gap:12px; width:100%; padding:14px 22px 15px; border-bottom:1px solid var(--rule); align-items:flex-start;}
+.row .n{font-size:12px; font-weight:400; color:var(--ink); letter-spacing:.08em; line-height:1; font-variant-numeric:tabular-nums; writing-mode:vertical-rl; transform:rotate(180deg); align-self:stretch; display:flex; align-items:center; justify-content:center; min-width:14px;}
+.row .name{flex:1; font-size:21px; font-weight:400; line-height:1.18; letter-spacing:-.02em;}
+.row .via{display:inline-block; margin-top:8px; font-size:11.5px; border:1px solid var(--ink); border-radius:20px; padding:3px 10px;}
+.row:not(.on):active{background:var(--soft);}
+.row.on .n{color:var(--acc);}
+.route{flex:1; min-width:0;}
+.route .k{font-size:11px; font-weight:600; color:var(--acc); text-transform:uppercase; letter-spacing:.08em;}
+.route .v{font-size:24px; font-weight:400; line-height:1.15; letter-spacing:-.025em; color:var(--acc); transition:opacity .18s, transform .22s;}
+.route .gap{height:10px;}
+.fade .v{opacity:0; transform:translateY(3px);}
+.inv{flex:0 0 auto; align-self:center; background:var(--ink); color:#fff; font-size:14px; font-weight:600; padding:12px 14px; border-radius:6px; display:flex; align-items:center; gap:7px;}
+.inv svg{width:15px; height:15px; transition:transform .4s cubic-bezier(.3,1.3,.5,1);}
+.inv.spin svg{transform:rotate(180deg);}
+.inv:active{opacity:.8;}
+
+/* segmented pill */
+.seg{position:relative; display:grid; grid-template-columns:repeat(3,1fr); background:var(--ink); border-radius:40px; padding:5px; margin:0 22px;}
+.segThumb{position:absolute; top:5px; bottom:5px; left:5px; width:calc((100% - 10px)/3); border-radius:40px; background:#F4F4F2; transition:transform .32s cubic-bezier(.3,1.2,.5,1);}
+.segBtn{position:relative; z-index:1; text-align:center; padding:12px 4px; font-size:14px; font-weight:500; color:#fff; transition:color .2s;}
+.segBtn.active{color:var(--ink);}
+.segBtn .td{display:block; font-size:9.5px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--acc); margin-top:1px;}
+.segBtn{min-height:48px;}
+
+/* times */
+.grid{display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--rule); margin-top:18px;}
+.t{padding:18px 0 17px; text-align:center; font-size:19px; font-weight:400; border-bottom:1px solid var(--rule); border-right:1px solid var(--rule);}
+.t:nth-child(4n){border-right:0;}
+.t.past{color:var(--faint);}
+.t.nx{color:var(--acc); font-weight:600; position:relative;}
+.t.nx::after{content:""; position:absolute; left:50%; bottom:8px; width:5px; height:5px; margin-left:-2.5px; border-radius:50%; background:var(--acc);}
+.t:active{background:var(--soft);}
+.hint{font-size:12px; color:var(--sub); padding:14px 22px 0;}
+.empty{padding:28px 22px; font-size:17px; color:var(--sub); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); margin-top:18px;}
+.note{font-size:12px; color:var(--sub); line-height:1.5; padding:22px 22px 0;}
+.note b{color:var(--acc); font-weight:600;}
+
+/* sheet */
+#ov{position:fixed; inset:0; background:rgba(0,0,0,.35); z-index:20; display:flex; align-items:flex-end; justify-content:center; opacity:0; pointer-events:none; transition:opacity .25s;}
+#ov.show{opacity:1; pointer-events:auto;}
+#sheet{width:100%; max-width:520px; background:var(--bg); border-radius:26px 26px 0 0; padding:18px 0 calc(24px + env(safe-area-inset-bottom,0px)); max-height:86vh; overflow-y:auto; transform:translateY(100%); transition:transform .4s cubic-bezier(.2,.9,.25,1);}
+#ov.show #sheet{transform:translateY(0);}
+.sTop{display:flex; justify-content:space-between; align-items:center; padding:0 22px;}
+.sTop .k{font-size:12px; font-weight:600; color:var(--acc);}
+.close{background:var(--ink); color:#fff; font-size:13px; font-weight:600; padding:9px 13px; border-radius:6px; display:flex; align-items:center; gap:8px;}
+.close svg{width:11px; height:11px;}
+.sBig{font-size:72px; font-weight:200; letter-spacing:-.05em; line-height:1; padding:18px 22px 6px;}
+.sSub{font-size:14px; color:var(--sub); padding:0 22px 20px;}
+.stop{display:flex; gap:12px; align-items:baseline; padding:13px 22px; border-top:1px solid var(--rule);}
+.stop:last-child{border-bottom:1px solid var(--rule);}
+.stop .n{font-size:10.5px; font-weight:600; min-width:14px;}
+.stop .nm{flex:1; font-size:18px; font-weight:400; letter-spacing:-.015em;}
+.stop .tm{font-size:17px;}
+.stop.end .nm, .stop.end .tm, .stop.end .n{color:var(--acc);}
+
+/* next block */
+.nx{display:block; width:100%; padding:20px 22px 22px; border-bottom:1px solid var(--rule);}
+.nx:active{background:var(--soft);}
+.nxTop{display:flex; align-items:center; justify-content:space-between; gap:12px;}
+.nxTime{font-size:76px; font-weight:200; letter-spacing:-.05em; line-height:.95;}
+.nxIn{background:var(--acc); color:#fff; font-size:15px; font-weight:600; padding:10px 14px; border-radius:30px; white-space:nowrap;}
+.nxRoute{font-size:16px; color:var(--sub); margin-top:12px; line-height:1.35;}
+.nxRoute b{color:var(--ink); font-weight:500;}
+.nxAfter{display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:16px; font-size:13px; color:var(--sub);}
+.nxAfter span.c{border:1px solid var(--ink); color:var(--ink); border-radius:20px; padding:4px 11px; font-size:14px;}
+.nxNone{font-size:24px; font-weight:300; letter-spacing:-.02em;}
+.nxNone small{display:block; font-size:14px; color:var(--sub); margin-top:6px; letter-spacing:0;}
+.nxLine{display:inline-block; font-size:12px; font-weight:700; color:#fff; background:var(--ink); border-radius:5px; padding:3px 7px; margin-right:8px; vertical-align:1px;}
+.logo{font-size:26px !important; font-weight:800 !important; letter-spacing:-.03em !important; text-transform:none !important; gap:0 !important;}
+.logo b{color:#C4552D !important; font-weight:800;}
+
+/* ===== tabs ===== */
+.tabs{position:relative; display:grid; grid-template-columns:1fr 1fr; background:var(--ink); border-radius:40px; padding:5px; margin:22px 22px 0;}
+.tabThumb{position:absolute; top:5px; bottom:5px; left:5px; width:calc((100% - 10px)/2); border-radius:40px; background:#F4F4F2; transition:transform .32s cubic-bezier(.3,1.2,.5,1);}
+.tab{position:relative; z-index:1; text-align:center; padding:12px 4px; font-size:14px; font-weight:600; color:#fff; transition:color .2s;}
+.tab.active{color:var(--ink);}
+.view[hidden]{display:none;}
+
+/* ===== porto planner ===== */
+.pDir{display:flex; gap:12px; width:100%; padding:16px 22px 17px; border-bottom:1px solid var(--rule); align-items:center;}
+.pPer{display:flex; gap:8px; padding:14px 22px 0; flex-wrap:wrap; align-items:center; font-size:12px; color:var(--sub);}
+.pPer button{font-size:13px; font-weight:500; border:1px solid var(--ink); border-radius:20px; padding:6px 12px;}
+.pPer button.on{background:var(--ink); color:#fff;}
+.best{display:block; width:100%; padding:20px 22px 22px; border-bottom:1px solid var(--rule);}
+.best:active{background:var(--soft);}
+.bestK{font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--acc); margin-bottom:6px;}
+.bestArr{font-size:17px; margin-top:12px;}
+.bestArr b{font-weight:600;}
+.legs{display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin-top:12px; font-size:13px; color:var(--sub);}
+.chip{display:inline-flex; align-items:center; font-size:12px; font-weight:700; color:#fff; background:var(--ink); border-radius:5px; padding:3px 7px; font-variant-numeric:tabular-nums;}
+.chip.o{background:transparent; color:var(--ink); border:1px solid var(--ink); font-weight:500;}
+.legs .ar{color:var(--ink);}
+.opt{display:flex; gap:12px; width:100%; padding:16px 22px; border-bottom:1px solid var(--rule); align-items:center;}
+.opt:active{background:var(--soft);}
+.opt .tt{font-size:24px; font-weight:300; letter-spacing:-.03em; white-space:nowrap;}
+.opt .tt span{color:var(--sub); font-size:18px; margin:0 6px;}
+.opt .mid{flex:1; min-width:0;}
+.opt .legs{margin-top:6px;}
+.opt .du{font-size:13px; color:var(--sub); white-space:nowrap; text-align:right; line-height:1.5;}
+.pNone{padding:22px; border-bottom:1px solid var(--rule);}
+.pNone .a{font-size:24px; font-weight:300; letter-spacing:-.02em;}
+.pNone .b{font-size:14px; color:var(--sub); margin-top:6px; line-height:1.45;}
+.legHead{display:flex; align-items:center; gap:10px; padding:16px 22px 10px; border-top:1px solid var(--rule); font-size:14px; font-weight:600;}
+.xfer{margin:0 22px; padding:14px 16px; background:#F7E4DF; border-left:3px solid var(--acc); font-size:14px; line-height:1.45; color:var(--ink);}
+.xfer b{color:var(--acc);}
+.est{color:var(--sub); font-size:12px;}
+.tight{display:inline-block; font-size:11.5px; font-weight:700; color:#8A4B00; background:#FCEBC9; border-radius:20px; padding:3px 9px; margin-left:2px;}
+.tightBox{margin-top:10px; padding:10px 12px; background:#FCEBC9; color:#6B3B00; font-size:13px; line-height:1.45;}
+.tightBox b{color:#6B3B00;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="logo">Bus<b>Ins</b></div>
+  </div>
+
+  <div class="tabs" id="tabs"><div class="tabThumb" id="tabThumb"></div><button class="tab active" data-v="linhas">Linhas</button><button class="tab" data-v="porto">Mais rápido</button></div>
+
+  <div class="view" id="viewLinhas">
+  <div class="sec" style="padding-top:30px"><div class="ttl">Linhas</div><div class="m">Toca para escolher</div></div>
+  <div class="rule"></div>
+  <div id="lines"></div>
+
+  <div class="sec"><div class="ttl">Próximo autocarro</div><div class="m" id="nxDay"></div></div>
+  <div class="rule"></div>
+  <button class="nx" id="nx"></button>
+
+  <div class="sec"><div class="ttl">Partidas</div><div class="m" id="count"></div></div>
+  <div class="seg" id="seg"><div class="segThumb" id="thumb"></div></div>
+  <div id="content"></div>
+  <div class="note" id="note"></div>
+  </div>
+
+  <div class="view" id="viewPorto" hidden>
+    <div class="sec" style="padding-top:30px"><div class="ttl">Viagem</div><div class="m" id="pDay"></div></div>
+    <div class="rule"></div>
+    <div id="pDirBox"></div>
+    <div id="pPer"></div>
+    <div id="pBest"></div>
+    <div class="sec"><div class="ttl">Outras opções</div><div class="m" id="pCount"></div></div>
+    <div class="rule"></div>
+    <div id="pList"></div>
+    <div class="note" id="pNote"></div>
+  </div>
+</div>
+
+<div id="ov">
+  <div id="sheet">
+    <div class="sTop"><div class="k" id="sK">Partida</div><button class="close" id="close">Fechar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="sBig num" id="sT"></div>
+    <div class="sSub" id="sS"></div>
+    <div id="stops"></div>
+  </div>
+</div>
+
+<script>
+const DATA = {"1215": {"title": "1215", "short": "Vale de Cambra ↔ SJ Madeira", "name": "Vale de Cambra ↔ S. João da Madeira", "tagline": "", "note": "Alguns horários de dias úteis aplicam-se apenas em período escolar.", "dirs": {"ida": {"label": "Vale de Cambra → S. João da Madeira", "stops": ["Vale de Cambra (CCT)", "Arrifaninha", "Farmácia", "Av. da Liberdade (Ponte)", "S. João da Madeira (CCT)"], "trips": {"du": [["06:30", "06:35", "06:41", "06:45", "06:48"], ["07:00", "07:05", "07:11", "07:15", "07:18"], ["07:30", "07:35", "07:41", "07:45", "07:48"], ["08:00", "08:05", "08:11", "08:15", "08:18"], ["09:00", "09:05", "09:11", "09:15", "09:18"], ["10:00", "10:05", "10:11", "10:15", "10:18"], ["12:30", "12:35", "12:41", "12:45", "12:48"], ["14:00", "14:05", "14:11", "14:15", "14:18"], ["15:00", "15:05", "15:11", "15:15", "15:18"], ["16:00", "16:05", "16:11", "16:15", "16:18"], ["16:30", "16:35", "16:41", "16:45", "16:48"], ["17:00", "17:05", "17:11", "17:16", "17:22"], ["18:00", "18:05", "18:11", "18:16", "18:22"], ["19:00", "19:05", "19:11", "19:16", "19:22"]], "sab": [["08:30", "08:35", "08:41", "08:45", "08:48"], ["12:00", "12:05", "12:11", "12:15", "12:18"], ["16:50", "16:55", "17:01", "17:05", "17:08"]], "dom": [["10:30", "10:35", "10:41", "10:45", "10:48"], ["17:30", "17:35", "17:41", "17:45", "17:48"]]}}, "volta": {"label": "S. João da Madeira → Vale de Cambra", "stops": ["S. João da Madeira (CCT)", "Av. da Liberdade (Ponte)", "Farmácia", "Arrifaninha", "Vale de Cambra (CCT)"], "trips": {"du": [["06:30", "06:33", "06:37", "06:43", "06:48"], ["07:15", "07:18", "07:22", "07:28", "08:05"], ["07:30", "07:33", "07:37", "07:43", "07:48"], ["08:30", "08:33", "08:37", "08:43", "08:48"], ["09:30", "09:33", "09:37", "09:43", "09:48"], ["10:30", "10:33", "10:37", "10:43", "10:48"], ["13:00", "13:03", "13:07", "13:13", "13:18"], ["14:30", "14:33", "14:37", "14:43", "14:48"], ["15:30", "15:33", "15:37", "15:43", "15:48"], ["16:00", "16:03", "16:07", "16:13", "16:18"], ["16:30", "16:33", "16:37", "16:43", "16:48"], ["17:00", "17:03", "17:07", "17:13", "17:18"], ["18:00", "18:06", "18:10", "18:16", "18:22"], ["18:30", "18:33", "18:37", "18:43", "18:48"], ["19:30", "19:33", "19:37", "19:43", "19:48"]], "sab": [["06:45", "06:48", "06:52", "06:58", "07:03"], ["11:30", "11:33", "11:37", "11:43", "11:48"], ["14:30", "14:33", "14:37", "14:43", "14:48"]], "dom": [["10:00", "10:03", "10:07", "10:13", "10:18"], ["17:00", "17:03", "17:07", "17:13", "17:18"]]}}}}, "1223": {"title": "1223", "short": "Vale de Cambra ↔ Porto (Camélias)", "name": "Vale de Cambra - Porto (Camélias)", "tagline": "Só dias úteis", "note": "Só circula em dias úteis. (Linha completa segue até Azeméis / Parque das Camélias.)", "dirs": {"ida": {"label": "Vale de Cambra → Porto (Camélias)", "stops": ["Vale de Cambra (CCT)", "Areais (Vicaima)", "Arrifaninha", "E.N. 227 (Cruz. Carregosa)", "D. João II (Metro)", "Parque das Camélias (CCT)"], "trips": {"du": [["07:08", "07:11", "07:14", "07:15", "07:44", "08:00"], ["08:30", "08:32", "08:35", "08:36", "09:01", "09:10"], ["13:30", "13:32", "13:35", "13:36", "14:01", "14:10"], ["17:03", "17:06", "17:09", "17:10", "17:39", "17:55"]], "sab": [], "dom": []}}, "volta": {"label": "Porto (Camélias) → Vale de Cambra", "stops": ["Parque das Camélias (CCT)", "D. João II (Metro)", "E.N. 227 (Cruz. Carregosa)", "Arrifaninha", "Areais (Vicaima)", "Vale de Cambra (CCT)"], "trips": {"du": [["08:45", "08:54", "09:24", "09:25", "09:27", "09:30"], ["09:15", "09:24", "09:54", "09:55", "09:57", "09:59"], ["12:30", "12:39", "13:09", "13:10", "13:12", "13:14"], ["18:30", "18:40", "19:13", "19:14", "19:17", "19:23"]], "sab": [], "dom": []}}}}, "1410": {"title": "1410", "short": "SJ Madeira ↔ Porto (Campanhã)", "name": "S. João da Madeira ↔ Porto (Campanhã)", "tagline": "Via A32", "note": "Via A32.", "dirs": {"ida": {"label": "S. João da Madeira → Porto (Campanhã)", "stops": ["S. João da Madeira (CCT)", "Rua Enedina Garcia", "Av. da Liberdade (Ponte)", "Campanhã (Estação)"], "trips": {"du": [["06:15", "06:16", "06:17", "06:50"], ["07:45", "07:46", "07:47", "08:40"], ["08:45", "08:46", "08:49", "09:35"], ["09:45", "09:46", "09:48", "10:20"], ["11:15", "11:16", "11:17", "11:50"], ["12:45", "12:46", "12:47", "13:20"], ["14:15", "14:16", "14:17", "14:50"], ["15:45", "15:46", "15:47", "16:20"], ["17:15", "17:16", "17:17", "17:55"], ["19:00", "19:01", "19:01", "19:40"], ["20:15", "20:16", "20:17", "20:50"]], "sab": [["08:15", "08:16", "08:20", "08:50"], ["11:30", "11:31", "11:35", "12:05"], ["14:30", "14:31", "14:35", "15:05"], ["17:30", "17:31", "17:35", "18:05"]], "dom": [["10:00", "10:01", "10:05", "10:35"], ["15:00", "15:01", "15:05", "15:35"], ["17:00", "17:01", "17:05", "17:35"]]}}, "volta": {"label": "Porto (Campanhã) → S. João da Madeira", "stops": ["Campanhã (Estação)", "Av. da Liberdade (Ponte)", "Quintã (Academia de Música)", "S. João da Madeira (CCT)"], "trips": {"du": [["07:00", "07:32", "07:34", "07:35"], ["08:45", "09:18", "09:19", "09:20"], ["09:45", "10:22", "10:24", "10:25"], ["10:30", "10:58", "10:59", "11:00"], ["12:00", "12:30", "12:32", "12:35"], ["13:30", "14:01", "14:03", "14:05"], ["15:00", "15:31", "15:33", "15:35"], ["16:30", "17:13", "17:13", "17:15"], ["18:00", "18:43", "18:43", "18:45"], ["19:40", "20:16", "20:18", "20:20"], ["21:00", "21:31", "21:33", "21:35"]], "sab": [["09:00", "09:30", "09:33", "09:35"], ["12:15", "12:45", "12:47", "12:50"], ["15:15", "15:45", "15:47", "15:50"], ["18:15", "18:45", "18:47", "18:50"]], "dom": [["11:00", "11:30", "11:33", "11:35"], ["16:00", "16:30", "16:33", "16:35"], ["18:00", "18:30", "18:33", "18:35"]]}}}}, "2026": {"title": "2026", "short": "SJ Madeira ↔ Porto (Camélias)", "name": "S. João da Madeira ↔ Porto (Camélias)", "tagline": "Via A1", "note": "Via A1. Só são apresentadas ligações diretas até / desde Parque das Camélias.", "dirs": {"ida": {"label": "S. João da Madeira → Porto (Camélias)", "stops": ["S. João da Madeira (CCT)", "C. D. Feirense", "Hospital S. Sebastião", "S. Paulo Cruz", "Zona Comercial", "D. João II (Metro)", "Parque das Camélias (CCT)"], "trips": {"du": [["06:45", "07:00", "07:01", "07:02", "07:05", "07:25", "07:35"], ["07:15", "07:33", "07:34", "07:37", "07:40", "08:00", "08:15"], ["08:45", "09:03", "09:04", "09:07", "09:10", "09:30", "09:45"], ["10:00", "10:18", "10:19", "10:22", "10:25", "10:45", "10:55"], ["10:30", "10:48", "10:49", "10:52", "10:55", "11:15", "11:25"], ["12:00", "12:18", "12:19", "12:22", "12:25", "12:45", "12:55"], ["12:30", "12:48", "12:49", "12:50", "12:54", "13:10", "13:20"], ["13:00", "13:18", "13:19", "13:22", "13:25", "13:45", "13:55"], ["14:00", "14:18", "14:19", "14:22", "14:25", "14:45", "14:55"], ["14:30", "14:48", "14:49", "14:52", "14:55", "15:15", "15:25"], ["16:00", "16:18", "16:19", "16:22", "16:25", "16:45", "16:55"], ["16:15", "16:33", "16:34", "16:37", "16:40", "17:00", "17:10"], ["16:30", "16:48", "16:49", "16:52", "16:55", "17:15", "17:30"], ["17:00", "17:18", "17:19", "17:22", "17:25", "17:45", "18:00"], ["18:00", "18:18", "18:19", "18:22", "18:25", "18:45", "19:00"], ["18:30", "18:48", "18:49", "18:52", "18:55", "19:14", "19:20"], ["19:30", "19:48", "19:49", "19:51", "19:53", "20:12", "20:20"], ["20:30", "20:44", "20:45", "20:47", "20:49", "21:06", "21:20"]], "sab": [["07:00", "07:15", "07:16", "07:17", "07:21", "07:39", "07:45"], ["09:00", "09:15", "09:16", "09:17", "09:23", "09:43", "09:55"], ["15:30", "15:45", "15:46", "15:47", "15:50", "16:10", "16:20"], ["17:30", "17:45", "17:46", "17:47", "17:50", "18:10", "18:20"]], "dom": [["08:00", "08:15", "08:16", "08:17", "08:21", "08:39", "08:45"], ["13:00", "13:15", "13:16", "13:17", "13:21", "13:40", "13:55"], ["19:00", "19:15", "19:16", "19:17", "19:20", "19:40", "19:50"]]}}, "volta": {"label": "Porto (Camélias) → S. João da Madeira", "stops": ["Parque das Camélias (CCT)", "D. João II (Metro)", "Zona Comercial", "Hospital S. Sebastião", "C. D. Feirense", "S. João da Madeira (CCT)"], "trips": {"du": [["07:45", "07:55", "08:13", "08:16", "08:17", "08:35"], ["08:45", "08:55", "09:15", "09:18", "09:20", "09:40"], ["10:00", "10:15", "10:35", "10:41", "10:42", "11:00"], ["11:00", "11:15", "11:35", "11:41", "11:42", "12:00"], ["11:30", "11:43", "12:00", "12:03", "12:04", "12:25"], ["13:00", "13:13", "13:30", "13:33", "13:34", "13:55"], ["13:30", "13:43", "14:00", "14:03", "14:04", "14:25"], ["14:00", "14:13", "14:30", "14:33", "14:34", "14:55"], ["15:00", "15:13", "15:30", "15:33", "15:34", "15:55"], ["15:30", "15:43", "16:00", "16:03", "16:04", "16:25"], ["17:00", "17:15", "17:35", "17:41", "17:42", "18:05"], ["17:30", "17:45", "18:05", "18:11", "18:12", "18:35"], ["18:00", "18:15", "18:35", "18:41", "18:42", "19:05"], ["18:30", "18:45", "19:05", "19:11", "19:12", "19:30"], ["19:00", "19:15", "19:35", "19:41", "19:42", "20:00"], ["19:30", "19:45", "20:05", "20:11", "20:12", "20:30"], ["20:30", "20:40", "21:00", "21:04", "21:05", "21:20"], ["21:30", "21:40", "22:00", "22:03", "22:04", "22:15"]], "sab": [["07:55", "08:04", "08:20", "08:23", "08:24", "08:40"], ["10:00", "10:08", "10:25", "10:27", "10:28", "10:55"], ["16:30", "16:40", "17:00", "17:03", "17:04", "17:20"], ["18:30", "18:40", "19:00", "19:03", "19:04", "19:20"]], "dom": [["09:00", "09:09", "09:25", "09:27", "09:28", "09:45"], ["14:00", "14:08", "14:25", "14:27", "14:28", "14:45"], ["20:00", "20:10", "20:20", "20:23", "20:24", "20:50"]]}}}}};
+const DAYS = {du:"Dias úteis", sab:"Sábado", dom:"Domingo"};
+const SWAP = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v16"/><path d="M3 8l4-4 4 4"/><path d="M17 20V4"/><path d="M21 16l-4 4-4-4"/></svg>`;
+const order = Object.keys(DATA);
+const T0 = 6*60, T1 = 23*60; // timeline 06h–23h
+let state = {line:"1223", dir:"ida", day:today(), spin:false};
+
+function today(){ const d=new Date().getDay(); return d===0?"dom":d===6?"sab":"du"; }
+function nowMin(){ const n=new Date(); return n.getHours()*60+n.getMinutes(); }
+function toMin(t){ const [h,m]=t.split(":").map(Number); return h*60+m; }
+function pad(n){ return String(n).padStart(2,"0"); }
+function ends(d){ const p=d.label.split("→").map(s=>s.trim()); return p.length===2?p:[d.label,""]; }
+function pct(m){ return Math.max(0, Math.min(100, (m-T0)/(T1-T0)*100)); }
+function inTxt(d){ if(d<=0) return "Parte agora"; const h=Math.floor(d/60), m=d%60; return "Parte daqui a " + (h ? `${h}h${m?pad(m):""}` : `${m} min`); }
+
+function renderNext(){
+  const dirData = DATA[state.line].dirs[state.dir];
+  const trips = dirData.trips[today()] || [];
+  const now = nowMin();
+  const i = trips.findIndex(t=>toMin(t[0])>=now);
+  const [ra,rb] = ends(dirData);
+  document.getElementById("nxDay").textContent = "Hoje · " + DAYS[today()];
+  const box = document.getElementById("nx");
+  if(i===-1){
+    box.innerHTML = `<div class="nxNone">${trips.length ? "Não há mais partidas hoje" : "Esta linha não circula hoje"}<small>Consulta os horários abaixo.</small></div>`;
+    box.onclick = null; return;
+  }
+  const d = toMin(trips[i][0]) - now, h = Math.floor(d/60), m = d%60;
+  const inTxt = d<=0 ? "Agora" : "daqui a " + (h ? `${h}h${m?pad(m):""}` : `${m} min`);
+  box.innerHTML = `
+    <div class="nxTop"><span class="nxTime num">${trips[i][0]}</span><span class="nxIn">${inTxt}</span></div>
+    <div class="nxRoute"><span class="nxLine">Linha ${DATA[state.line].title}</span><b>${ra}</b> → <b>${rb}</b></div>`;
+  box.onclick = ()=> openStops(dirData, trips[i]);
+}
+
+function renderLines(){
+  const box = document.getElementById("lines");
+  box.innerHTML = order.map((k,idx)=>{
+    const l = DATA[k], n = l.title;
+    if(k===state.line){
+      const [a,b] = ends(l.dirs[state.dir]);
+      return `<div class="row on"><span class="n">${n}</span>
+        <div class="route" id="route"><div class="k">De</div><div class="v">${a}</div><div class="gap"></div><div class="k">Para</div><div class="v">${b}</div></div>
+        <button class="inv ${state.spin?"spin":""}" id="swap">Inverter ${SWAP}</button></div>`;
+    }
+    return `<button class="row" data-k="${k}"><span class="n">${n}</span>
+      <span class="name">${l.name.replace(" - "," ↔ ")}${l.tagline?`<br><span class="via">${l.tagline}</span>`:""}</span></button>`;
+  }).join("");
+  box.querySelectorAll("button.row").forEach(b=> b.onclick = ()=>{
+    state.line=b.dataset.k; state.dir="ida"; state.spin=false; renderAll();
+
+  });
+  document.getElementById("swap").onclick = ()=>{
+    state.dir = state.dir==="ida"?"volta":"ida"; state.spin=!state.spin;
+    if(navigator.vibrate) navigator.vibrate(8);
+    document.getElementById("swap").classList.toggle("spin", state.spin);
+    document.getElementById("route").classList.add("fade");
+    setTimeout(renderAll, 170);
+  };
+}
+
+function renderSeg(){
+  const seg = document.getElementById("seg");
+  seg.querySelectorAll(".segBtn").forEach(b=>b.remove());
+  const keys = Object.keys(DAYS);
+  keys.forEach(d=>{
+    const b = document.createElement("button");
+    b.className = "segBtn" + (d===state.day?" active":"");
+    b.innerHTML = DAYS[d] + (d===today() ? '<span class="td">hoje</span>' : "");
+    b.onclick = ()=>{ state.day=d; renderTimes(); };
+    seg.appendChild(b);
+  });
+  document.getElementById("thumb").style.transform = `translateX(${keys.indexOf(state.day)*100}%)`;
+}
+
+function renderTimes(){
+  renderSeg();
+  const line = DATA[state.line], dirData = line.dirs[state.dir];
+  const trips = dirData.trips[state.day] || [];
+  document.getElementById("note").innerHTML = line.note ? `<b>Nota</b> — ${line.note}` : "";
+  document.getElementById("count").textContent = trips.length ? `${trips.length} horários` : "";
+  const box = document.getElementById("content");
+  if(!trips.length){ box.innerHTML = `<div class="empty">Sem serviço neste dia.</div>`; return; }
+  const now = nowMin(), isToday = state.day===today();
+  const nx = isToday ? trips.findIndex(t=>toMin(t[0])>=now) : -1;
+  box.innerHTML = `<div class="grid">` + trips.map((t,i)=>{
+    const past = isToday && (nx===-1 || i<nx);
+    return `<button class="t num ${past?"past":""} ${i===nx?"nx":""}" data-i="${i}">${t[0]}</button>`;
+  }).join("") + `</div><div class="hint">Toca numa hora para ver as paragens</div>`;
+  box.querySelectorAll("[data-i]").forEach(b=> b.onclick = ()=> openStops(dirData, trips[+b.dataset.i]));
+}
+
+function renderAll(){ renderNext(); renderLines(); renderTimes(); }
+
+function closeSheet(){ document.getElementById("ov").classList.remove("show"); }
+function openStops(dirData, trip){
+  const stops = dirData.stops;
+  document.getElementById("sK").textContent = `Linha ${DATA[state.line].title} · Partida`;
+  document.getElementById("sT").textContent = trip[0];
+  document.getElementById("sS").textContent = `${dirData.label} · ${stops.length} paragens`;
+  document.getElementById("stops").innerHTML = stops.map((n,i)=>
+    `<div class="stop ${i===0||i===stops.length-1?"end":""}"><span class="n">${pad(i+1)}</span><span class="nm">${n}</span><span class="tm num">${trip[i]}</span></div>`).join("");
+  document.getElementById("ov").classList.add("show");
+}
+document.getElementById("close").onclick = closeSheet;
+document.getElementById("ov").addEventListener("click", e=>{ if(e.target.id==="ov") closeSheet(); });
+(function(){
+  const s=document.getElementById("sheet"); let y0=null, dy=0;
+  s.addEventListener("touchstart",e=>{ if(s.scrollTop<=0){ y0=e.touches[0].clientY; dy=0; s.style.transition="none"; } },{passive:true});
+  s.addEventListener("touchmove",e=>{ if(y0===null) return; dy=Math.max(0,e.touches[0].clientY-y0); s.style.transform=`translateY(${dy}px)`; },{passive:true});
+  s.addEventListener("touchend",()=>{ if(y0===null) return; s.style.transition=""; s.style.transform=""; if(dy>90) closeSheet(); y0=null; });
+})();
+
+
+/* =================== IR AO PORTO =================== */
+/* Linha 1220 (Oliveira de Azeméis ⇄ Porto) — só dias úteis. p: "esc"=período escolar, "fer"=férias escolares, "all"=sempre */
+const L1220_VOLTA = { line:"1220", stops:["Parque das Camélias (CCT)","D. João II (Metro)","Praça José da Costa (OAZ)"],
+  trips:[ {p:"esc", t:["10:30","10:40","11:25"]}, {p:"fer", t:["11:00","11:10","11:55"]}, {p:"fer", t:["12:00","12:10","12:50"]}, {p:"all", t:["17:00","17:10","17:50"]} ] };
+/* Ligações Oliveira de Azeméis → Vale de Cambra (dias úteis). Partem da EBS Soares de Basto e passam na Praça José da Costa pouco depois (hora estimada: off). */
+const OAZ_VDC = [
+  { line:"1218", off:2, stops:["Praça José da Costa (OAZ)","Hospital S. Miguel","GNR - Centro de Saúde (OAZ)","EBS Ferreira de Castro","Escola Bustelo","Arrifaninha","Vale de Cambra (CCT)"],
+    ebs:["08:10","10:25","11:05","13:40","15:00","18:30"],
+    trips:[["08:15","08:17","08:19","08:22","08:30","08:40"],["10:30","10:32","10:34","10:37","10:45","10:55"],["11:10","11:12","11:14","11:17","11:25","11:35"],["13:45","13:47","13:49","13:52","14:00","14:10"],["15:05","15:07","15:09","15:12","15:20","15:30"],["18:35","18:37","18:39","18:42","18:50","19:00"]] },
+  { line:"1209", off:3, stops:["Praça José da Costa (OAZ)","Hospital S. Miguel","GNR - Centro de Saúde (OAZ)","EBS Ferreira de Castro","Escola Bustelo","Pindelo","Vermoim","Barreiro","Salgueiros","Baralhas","Vale de Cambra (CCT)"],
+    ebs:["14:35","17:05","18:35"],
+    trips:[["14:42","14:44","14:46","14:49","14:52","15:00","15:08","15:10","15:13","15:18"],["17:12","17:14","17:16","17:19","17:22","17:30","17:38","17:40","17:43","17:48"],["18:42","18:44","18:46","18:49","18:52","19:00","19:08","19:10","19:13","19:18"]] }
+];
+const MIN_XFER = 5; // minutos mínimos para a troca
+const TIGHT = 10;   // abaixo disto, avisar que a troca é apertada
+let pstate = { dir:"ida", per:"esc", spin:false };
+
+function fromMin(m){ return pad(Math.floor(m/60))+":"+pad(m%60); }
+function durTxt(m){ const h=Math.floor(m/60), r=m%60; return h ? `${h}h${r?pad(r):""}` : `${r} min`; }
+
+function dayKey(date){ const d=date.getDay(); return d===0?"dom":d===6?"sab":"du"; }
+function portoOptions(dayType){
+  const opts=[];
+  const d1223 = DATA["1223"].dirs[pstate.dir];
+  (d1223.trips[dayType]||[]).forEach(t=> opts.push({dep:toMin(t[0]), arr:toMin(t[t.length-1]), legs:[{line:"1223", stops:d1223.stops, t}], xfer:null}));
+  if(pstate.dir==="ida"){
+    // Vale de Cambra → S. João da Madeira (1215) + S. João da Madeira → Porto (1410 Campanhã / 2026 Camélias)
+    const a = DATA["1215"].dirs.ida;
+    (a.trips[dayType]||[]).forEach(t1=>{
+      const arrSJM = toMin(t1[t1.length-1]);
+      let best=null;
+      ["1410","2026"].forEach(k=>{
+        const d = DATA[k].dirs.ida;
+        (d.trips[dayType]||[]).forEach(t2=>{
+          const dep2 = toMin(t2[0]);
+          if(dep2 >= arrSJM + MIN_XFER){
+            const arr = toMin(t2[t2.length-1]);
+            if(!best || arr<best.arr || (arr===best.arr && dep2>best.dep2)) best={k, d, t2, dep2, arr};
+          }
+        });
+      });
+      if(best) opts.push({dep:toMin(t1[0]), arr:best.arr,
+        legs:[{line:"1215", stops:a.stops, t:t1}, {line:best.k, stops:best.d.stops, t:best.t2}],
+        xfer:{kind:"sjm", at:"S. João da Madeira (CCT)", short:"S. João da Madeira", wait:best.dep2-arrSJM, line:best.k}});
+    });
+  } else {
+    // Porto (1410 Campanhã / 2026 Camélias) → S. João da Madeira + 1215 → Vale de Cambra
+    const c = DATA["1215"].dirs.volta;
+    ["1410","2026"].forEach(k=>{
+      const d = DATA[k].dirs.volta;
+      (d.trips[dayType]||[]).forEach(t1=>{
+        const arrSJM = toMin(t1[t1.length-1]);
+        let best=null;
+        (c.trips[dayType]||[]).forEach(t2=>{
+          const dep2=toMin(t2[0]);
+          if(dep2 >= arrSJM + MIN_XFER){ const arr=toMin(t2[t2.length-1]); if(!best || arr<best.arr) best={t2,dep2,arr}; }
+        });
+        if(best) opts.push({dep:toMin(t1[0]), arr:best.arr,
+          legs:[{line:k, stops:d.stops, t:t1}, {line:"1215", stops:c.stops, t:best.t2}],
+          xfer:{kind:"sjm", at:"S. João da Madeira (CCT)", short:"S. João da Madeira", wait:best.dep2-arrSJM, line:"1215"}});
+      });
+    });
+  }
+  const keep = opts.filter(o=> !opts.some(q=> q!==o && q.dep>=o.dep && q.arr<=o.arr && (q.dep>o.dep || q.arr<o.arr)));
+  // se duas opções forem iguais (mesma partida e chegada), fica a direta
+  const uniq = keep.filter((o,i)=> !keep.some((q,j)=> j<i && q.dep===o.dep && q.arr===o.arr));
+  return uniq.sort((a,b)=>a.dep-b.dep);
+}
+function destName(o){ const L = pstate.dir==="ida" ? o.legs[o.legs.length-1] : o.legs[0]; const n = pstate.dir==="ida" ? L.stops[L.stops.length-1] : L.stops[0];
+  return /Campanh/.test(n) ? "Porto (Campanhã)" : /Camélias/.test(n) ? "Porto (Camélias)" : n.replace(" (CCT)",""); }
+
+function legsHTML(o){
+  if(!o.xfer) return `<span class="chip">${o.legs[0].line}</span> Direto`;
+  return `<span class="chip">${o.legs[0].line}</span> → <span class="chip">${o.legs[1].line}</span> troca em ${o.xfer.short}${o.xfer.wait<TIGHT?` <span class="tight">Troca apertada · ${o.xfer.wait} min</span>`:""}`;
+}
+
+function nextDayWithService(){
+  const base=new Date();
+  for(let k=1;k<=7;k++){ const d=new Date(base); d.setDate(base.getDate()+k); const key=dayKey(d); if(portoOptions(key).length) return {k, wd:d.getDay(), key}; }
+}
+
+function renderPorto(){
+  const now=nowMin(), dt=today();
+  document.getElementById("pDay").textContent = "Hoje · " + DAYS[dt];
+  const [a,b] = pstate.dir==="ida" ? ["Vale de Cambra","Porto"] : ["Porto","Vale de Cambra"];
+  document.getElementById("pDirBox").innerHTML = `<div class="pDir row on" style="border-bottom:1px solid var(--rule)">
+    <div class="route" id="pRoute"><div class="k">De</div><div class="v">${a}</div><div class="gap"></div><div class="k">Para</div><div class="v">${b}</div></div>
+    <button class="inv ${pstate.spin?"spin":""}" id="pSwap">Inverter ${SWAP}</button></div>`;
+  document.getElementById("pSwap").onclick = ()=>{
+    pstate.dir = pstate.dir==="ida"?"volta":"ida"; pstate.spin=!pstate.spin;
+    if(navigator.vibrate) navigator.vibrate(8);
+    document.getElementById("pSwap").classList.toggle("spin", pstate.spin);
+    document.getElementById("pRoute").classList.add("fade");
+    setTimeout(renderPorto, 170);
+  };
+  document.getElementById("pPer").innerHTML = "";
+
+  let opts = portoOptions(dt).filter(o=>o.dep>=now);
+  let dayLbl = "", isToday = true;
+  if(!opts.length){
+    const nd = nextDayWithService(); isToday=false;
+    dayLbl = !nd ? "" : nd.k===1 ? "amanhã" : ["domingo","segunda-feira","terça-feira","quarta-feira","quinta-feira","sexta-feira","sábado"][nd.wd];
+    opts = nd ? portoOptions(nd.key) : [];
+  }
+  const best = document.getElementById("pBest"), list=document.getElementById("pList");
+  if(!opts.length){ best.innerHTML = `<div class="pNone"><div class="a">Sem ligações</div></div>`; list.innerHTML=""; return; }
+  const o0 = opts[0];
+  const d = o0.dep-now, h=Math.floor(d/60), m=d%60;
+  const inTxt = !isToday ? dayLbl : d<=0 ? "Agora" : "daqui a " + (h ? `${h}h${m?pad(m):""}` : `${m} min`);
+  best.innerHTML = `${!isToday ? `<div class="pNone" style="border-bottom:0;padding-bottom:0"><div class="a">${portoOptions(dt).length?"Hoje já não há mais":"Hoje não há ligações"}</div><div class="b">A primeira opção é ${dayLbl}.</div></div>`:""}
+    <button class="best" id="bestBtn">
+      <div class="bestK">${isToday ? "A melhor opção" : "Primeira de " + dayLbl}</div>
+      <div class="nxTop"><span class="nxTime num">${fromMin(o0.dep)}</span><span class="nxIn">${inTxt}</span></div>
+      <div class="bestArr">${pstate.dir==="ida" ? `Chegas a ${destName(o0)} às <b class="num">${fromMin(o0.arr)}</b>` : `Sai de ${destName(o0)} · chegas às <b class="num">${fromMin(o0.arr)}</b>`} · ${durTxt(o0.arr-o0.dep)}</div>
+      <div class="legs">${legsHTML(o0)}</div>
+    </button>`;
+  document.getElementById("bestBtn").onclick = ()=> openTrip(o0);
+  const rest = opts.slice(1);
+  document.getElementById("pCount").textContent = rest.length ? `${rest.length} ${isToday?"hoje":dayLbl}` : "";
+  list.innerHTML = rest.length ? rest.map((o,i)=>`<button class="opt" data-i="${i+1}">
+      <div class="mid"><div class="tt num">${fromMin(o.dep)}<span>→</span>${fromMin(o.arr)}</div><div class="legs">${legsHTML(o)}</div></div>
+      <div class="du">${durTxt(o.arr-o.dep)}<br><span style="color:var(--ink)">${pstate.dir==="ida"?"":"de "}${destName(o).replace("Porto (","").replace(")","")}</span></div></button>`).join("")
+    : `<div class="pNone"><div class="b">Não há mais opções ${isToday?"hoje":dayLbl}.</div></div>`;
+  list.querySelectorAll(".opt").forEach(x=> x.onclick=()=> openTrip(opts[+x.dataset.i]));
+  document.getElementById("pNote").innerHTML = pstate.dir==="volta"
+    ? `<b>Nota</b> — Direto pela linha 1223 (Camélias), com troca em <b style="color:var(--ink)">S. João da Madeira (CCT)</b> (1410 desde Campanhã ou 2026 desde as Camélias, depois o 1215). As trocas têm pelo menos ${MIN_XFER} min de margem; abaixo de ${TIGHT} min aparece um aviso, porque um atraso por trânsito pode fazer perder a ligação.`
+    : `<b>Nota</b> — Direto pela linha 1223 ou com troca em <b style="color:var(--ink)">S. João da Madeira (CCT)</b>: o 1215 termina no terminal e o 1410 (Campanhã) ou o 2026 (Camélias) partem do mesmo terminal. As trocas têm pelo menos ${MIN_XFER} min de margem; abaixo de ${TIGHT} min aparece um aviso, porque um atraso por trânsito pode fazer perder a ligação. Alguns horários do 1215 em dias úteis são só em período escolar.`;
+}
+
+function openTrip(o){
+  document.getElementById("sK").textContent = o.xfer ? "Viagem com 1 troca" : "Viagem direta";
+  document.getElementById("sT").innerHTML = `<span style="font-size:56px">${fromMin(o.dep)} <span style="color:var(--sub)">→</span> ${fromMin(o.arr)}</span>`;
+  document.getElementById("sS").textContent = `${pstate.dir==="ida"?"Vale de Cambra":destName(o)} → ${pstate.dir==="ida"?destName(o):"Vale de Cambra"} · ${durTxt(o.arr-o.dep)}`;
+  let html="";
+  o.legs.forEach((L,li)=>{
+    if(li===1){
+      html += o.xfer.kind==="oaz"
+        ? `<div class="xfer">Troca em <b>Praça José da Costa (OAZ)</b> — a mesma paragem onde sais.<br>Espera cerca de <b>${durTxt(o.xfer.wait)}</b>. O ${o.xfer.line} sai da EBS Soares de Basto às ${o.xfer.ebs} e passa na praça por volta das ${fromMin(o.xfer.pass)}.</div>`
+        : `<div class="xfer">Troca em <b>${o.xfer.at}</b> — o ${o.xfer.line} parte do mesmo terminal onde sais.<br>Espera <b>${durTxt(o.xfer.wait)}</b>.${o.xfer.wait<TIGHT?`<div class="tightBox"><b>Atenção:</b> a margem é pequena. Se o primeiro autocarro se atrasar por causa do trânsito, podes perder a ligação. Considera apanhar uma opção mais cedo.</div>`:""}</div>`;
+    }
+    html += `<div class="legHead"><span class="chip">${L.line}</span>${L.stops[0].replace(" (CCT)","")} → ${L.stops.slice(-1)[0].replace(" (CCT)","")}</div>`;
+    html += L.stops.map((n,i)=>`<div class="stop ${i===0||i===L.stops.length-1?"end":""}"><span class="n">${pad(i+1)}</span><span class="nm">${n}</span><span class="tm num">${L.est0&&i===0?'<span class="est">≈ </span>':''}${L.t[i]}</span></div>`).join("");
+  });
+  document.getElementById("stops").innerHTML = html;
+  document.getElementById("ov").classList.add("show");
+}
+
+/* tabs */
+function setTab(v){
+  document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active", t.dataset.v===v));
+  document.getElementById("tabThumb").style.transform = `translateX(${v==="porto"?100:0}%)`;
+  document.getElementById("viewLinhas").hidden = v!=="linhas";
+  document.getElementById("viewPorto").hidden = v!=="porto";
+  if(v==="porto") renderPorto();
+}
+document.querySelectorAll(".tab").forEach(t=> t.onclick=()=>setTab(t.dataset.v));
+setInterval(()=>{ if(!document.getElementById("viewPorto").hidden) renderPorto(); }, 30000);
+
+function tick(){}
+tick(); renderAll();
+setInterval(()=>{ tick(); renderNext(); renderTimes(); }, 30000);
+</script>
+</body>
+</html>
